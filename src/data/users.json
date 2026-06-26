@@ -1,0 +1,17 @@
+{
+  "valid": {
+    "username": "test@example.com",
+    "password": "secret_sauce",
+    "expectedMessage": "You are logged in!"
+  },
+  "invalid": [
+    {
+      "username": "locked_out_user",
+      "password": "secret_sauce"
+    },
+    {
+      "username": "problem_user",
+      "password": "secret_sauce"
+    }
+  ]
+}
