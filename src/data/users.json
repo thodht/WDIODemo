@@ -2,7 +2,7 @@
   "valid": {
     "username": "test@example.com",
     "password": "secret_sauce",
-    "expectedMessage": "You are logged in!"
+    "expectedMessage": "Success"
   },
   "invalid": [
     {

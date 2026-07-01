@@ -8,10 +8,6 @@ export class Menu {
         return driver.isAndroid? AndroidMenuLocators : IOSMenuLocators;
     }
 
-    private get MenuPanel() {
-        return $(this.MenuLocators.menuPanel);
-    }
-
     private get HomeButton() {
         return $(this.MenuLocators.homeButton);
     }
@@ -24,7 +20,7 @@ export class Menu {
         return $(this.MenuLocators.loginButton);
     }
 
-    private get FormsButton() {
+    /**private get FormsButton() {
         return $(this.MenuLocators.formsButton);
     }
 
@@ -42,7 +38,7 @@ export class Menu {
 
     private get DataButton() {
         return $(this.MenuLocators.dataButton);
-    }
+    }*/
 
     public async openHomeScreen() {
         //if (!this.MenuPanel.isDisplayed()) { await Toolbar.MenuButton.click();}
@@ -51,7 +47,7 @@ export class Menu {
     }
 
     public async openWebviewScreen() {
-        await Toolbar.WebButton.click();
+        await Toolbar.MenuButton.click();
         await this.WebviewButton.click();
     }
 

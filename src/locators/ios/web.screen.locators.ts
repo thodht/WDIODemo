@@ -1,24 +1,20 @@
 export const IOSWebScreenLocators = {
     // --------  Native locators  --------------
-    spash: 'iandroid=new UiSelector().className("android.webkit.WebView")',
-    webViewContainer: 'iandroid=new UiSelector().className("android.view.View").instance(10)',
-    ioButton: 'i//android.widget.Image[@content-desc="WebdriverIO"]',
+    ioButton: '-ios class chain:**/XCUIElementTypeImage[`name == "WebdriverIO"`]',
     // Hamburger menu items
-    hamburgerMenuButton: 'i~Toggle navigation bar',
-    menuContainer: 'iandroid=new UiSelector().className("android.view.View").instance(9)',
-    menuBackToMainMenu: 'iandroid=new UiSelector().text("← Back to main menu")',
-    menuDocs: 'i~Docs',
-    menuAPI: 'i~API',
+    hamburgerMenuButton: '~Toggle navigation bar',
+    menuBackToMainMenu: '~← Back to main menu',
+    menuDocs: '-ios class chain:**/XCUIElementTypeOther[`name == "Main, navigation"`]/XCUIElementTypeOther/XCUIElementTypeOther[1]',
+    menuAPI: '-ios class chain:**/XCUIElementTypeOther[`name == "Main, navigation"`]/XCUIElementTypeOther/XCUIElementTypeOther[2]',
 
     // ------------- Webview locators --------------
     // IO Home screen
-    ioWebviewContainer: 'iandroid=new UiSelector().className("android.widget.Image").instance(3)',
-    homeRobotImage: 'iandroid=new UiSelector().text("WebdriverIO")',
-    homeGetStartButton: 'i~Get Started',
-    homeWhyWebdriverIOButton: 'i~Why WebdriverIO?',
-    homeViewOnGithubButton: 'i~View on GitHub',
-    homeWatchOnYoutubeButton: 'i~Watch on YouTube',
+    homeRobotImage: '-ios class chain:**/XCUIElementTypeOther[`name == "WebdriverIO"`]',
+    homeGetStartButton: '-ios class chain:**/XCUIElementTypeStaticText[`name == "Get Started"`]',
+    homeWhyWebdriverIOButton: '-ios class chain:**/XCUIElementTypeStaticText[`name == "Why WebdriverIO?"`]',
+    homeViewOnGithubButton: '-ios class chain:**/XCUIElementTypeStaticText[`name == "View on GitHub"`]',
+    homeWatchOnYoutubeButton: '-ios class chain:**/XCUIElementTypeStaticText[`name == "Watch on YouTube"`][1]',
     // Docs Getting Started screen
-    docsGettingStartedHeading: 'iandroid=new UiSelector().text("Getting Started")',
-    docsGettingStartedVideo: 'iandroid=new UiSelector().className("android.view.View").instance(23)'
+    docsGettingStartedHeading: '-ios class chain:**/XCUIElementTypeOther[`name == "Getting Started"`]',
+    docsGettingStartedVideo: '-ios class chain:**/XCUIElementTypeOther[`name == "Getting Started with WebdriverIO"`][2]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]'
 }

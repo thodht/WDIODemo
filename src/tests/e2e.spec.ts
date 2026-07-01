@@ -15,7 +15,6 @@ describe('My WebdriverIO demo app', () => {
 
     /**it('Web screen testing', async () => {
         await Toolbar.clickWebButton();
-        await WebScreen.validateSpash();
         await WebScreen.validateScreenElements(WebScreen.IOScreenElements);
         await WebScreen.clickHamburgerButton();
         await WebScreen.clickMenuDocs();
@@ -25,18 +24,17 @@ describe('My WebdriverIO demo app', () => {
         await Toolbar.clickLoginButton();
         await LoginScreen.validateScreenElements(LoginScreen.screenElements);
         await LoginScreen.login(Users.valid.username, Users.valid.password, Users.valid.expectedMessage);
-        await ToolBar.clickFormsButton();
     });*/
 
     /**it('Fill the form and submit', async () => {
         await Toolbar.clickFormsButton();
         await FormsScreen.validateScreenElements(FormsScreen.FormsScreenElements);
-        await FormsScreen.fillTheForm('input text', true, 3);
+        await FormsScreen.fillTheForm('input text', true, 'Appium is awesome');
     });*/
 
     /**it('Look for 4th card and the robot', async () => {
         await Toolbar.clickSwipeButton();
-        await SwipeScreen.scrollToFourthCard();
+        await SwipeScreen.horizontalScrollToCard('EXTENDABLE');
         await SwipeScreen.scrollToRobot();
     });*/
 
@@ -44,7 +42,7 @@ describe('My WebdriverIO demo app', () => {
         await Toolbar.clickDragButton();
         await DragScreen.solvePuzzle();
         await driver.pause(3000);
-    }); */
+    });*/ 
     
     it('Test the menu panel', async() => {
         await Menu.openHomeScreen();

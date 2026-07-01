@@ -29,6 +29,14 @@ export class FormsScreen extends Screen {
         return $$(this.FormsScreenLocators.dropdownOptions);
     }
 
+    private get PickerWheel() {
+        return $(this.FormsScreenLocators.dropdownOptions);
+    }
+
+    private get DoneButton() {
+        return $(this.FormsScreenLocators.doneButton);
+    }
+
     private get ActiveButton() {
         return $(this.FormsScreenLocators.activeButton);
     }
@@ -41,16 +49,25 @@ export class FormsScreen extends Screen {
         return [this.InputField, this.InputResult, this.Switch, this.Dropdown, this.ActiveButton];
     }
 
-    public async fillTheForm(inputText: string, expectedState: boolean, index: number) {
+    public async fillTheForm(inputText: string, expectedState: boolean, value: string) {
         await this.InputField.setValue(inputText);
         await expect(this.InputResult).toHaveText(inputText);
         if (expectedState !== await this.Switch.isSelected()) await this.Switch.click();
         await this.Dropdown.click();
-        const choiceCount = await this.DropdownOptions.length;
-        if (index < 0 || index >= choiceCount) {
-            throw new Error(`Index is out of range, there are only ${choiceCount} options!`);
+        if (driver.isAndroid) {
+            const optionCount = await this.DropdownOptions.length;
+            for (let i = 0; i < optionCount; i++) {
+                if (value === await this.DropdownOptions[i].getText()) {
+                    await this.DropdownOptions[i].click();
+                    break;
+                }
+            }
         }
-        await this.DropdownOptions[index].click();
+        else {
+            await this.PickerWheel.setValue(value);
+            await this.DoneButton.click();
+        }
+        await this.ActiveButton.waitForDisplayed();
         await this.ActiveButton.click();
         //await driver.pause(3000);
         await this.OkButton.click();

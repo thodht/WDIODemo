@@ -1,6 +1,6 @@
 export const IOSHomeScreenLocators = {
-    robotImage: 'iandroid=new UiSelector().className("android.widget.ImageView").instance(0)',
-    wdioLogo: 'iandroid=new UiSelector().className("android.widget.ImageView").instance(1)',
-    appleLogo: 'iandroid=new UiSelector().text("󰀵")',
-    androidLogo: 'iandroid=new UiSelector().text("󰀵")'
+    robotImage: '~assets/src/assets/webdriverio.png',
+    wdioLogo: '~assets/src/assets/io.png',
+    appleLogo: '-ios class chain:**/XCUIElementTypeOther[`name == "your_common_parent"`]/XCUIElementTypeButton[1]',
+    androidLogo: '-ios class chain:**/XCUIElementTypeOther[`name == "your_common_parent"`]/XCUIElementTypeButton[2]'
 }

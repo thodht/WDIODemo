@@ -6,6 +6,6 @@ export const AndroidLoginLocators = {
     passwordConfirmInput: '~input-repeat-password',
     loginButton: '~button-LOGIN',
     signUpButton: '~button-SIGN UP',
-    dialogMessage: 'android=new UiSelector().resourceId("android:id/message")',
+    dialogMessage: '~com.wdiodemoapp:id/alert_title',
     dialogOkButton: 'android=new UiSelector().resourceId("android:id/button1")'
 };

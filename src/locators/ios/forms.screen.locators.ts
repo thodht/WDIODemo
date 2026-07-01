@@ -1,9 +1,10 @@
 export const IOSFormsScreenLocators = {
-    inputField: 'i~text-input',
-    inputResult: 'i~input-text-result',
-    switch: 'i~switch',
-    dropdown: 'i~text_input',
-    dropdownOptions: 'i//android.widget.CheckedTextView',
-    activeButton: 'i~button-Active',
-    okButton: 'i~android:id/button1'
+    inputField: '~text-input',
+    inputResult: '~input-text-result',
+    switch: '~icon_container',
+    dropdown: '-ios class chain:**/XCUIElementTypeStaticText[`name == "󰅀"`]',
+    dropdownOptions: '-ios class chain:**/XCUIElementTypePickerWheel',
+    doneButton: '~done_button',
+    activeButton: '~button-Active',
+    okButton: '~OK'
 }

@@ -2,33 +2,52 @@ import { $ } from '@wdio/globals';
 import Screen from '../screens/screen.ts';
 import { AndroidSwipeScreenLocators } from '../locators/android/swipe.screen.locators.ts';
 import { IOSSwipeScreenLocators } from '../locators/ios/swipe.screen.locators.ts';
+import { Utils } from '../utils/utils.ts';
 
 export class SwipeScreen extends Screen {
     private get SwipeScreenLocators() {
         return driver.isAndroid? AndroidSwipeScreenLocators : IOSSwipeScreenLocators;
     }
 
-    public async scrollToFourthCard(): Promise<void> {
-        // Resolve the dynamic native scroll-to-view locator
-        const targetCard = $(this.SwipeScreenLocators.scrollToCardByText(this.SwipeScreenLocators.fourthCardText));
+    public async horizontalScrollToCard(text: string): Promise<void> {
+        const targetCard = $(this.SwipeScreenLocators.getCardByText(text));
+        let maxSwipes = 10;
 
-        // This command forces Appium to perform the physical drag gestures automatically
-        if (await targetCard.waitForDisplayed({ timeout: 10000 })) {
-            console.log('Card found!');
+        while (!(await targetCard.isDisplayed()) && maxSwipes > 0) {
+            await Utils.swipeRight();
+            maxSwipes--;
         }
-        else { console.log('Card not found!'); }
+
+        if (maxSwipes === 0) {
+            throw new Error(`Card with text "${text}" was not found after 10 swipes.`);
+        }
+        console.log(`Successfully scrolled to card: ${text}`);
     }
 
     public async scrollToRobot(): Promise<void> {
-        // Resolve the dynamic native scroll-to-view locator
-        //const robotID = await this.TheRobot.getAttribute('name');
-        const targetCard = $(this.SwipeScreenLocators.scrollToImage(this.SwipeScreenLocators.theRobotID));
+        if (driver.isAndroid) {
+            const targetCard = $(this.SwipeScreenLocators.scrollToImage(this.SwipeScreenLocators.theRobotID));
 
-        // This command forces Appium to perform the physical drag gestures automatically
-        if (await targetCard.waitForDisplayed({ timeout: 10000 })) {
-            console.log('Robot found!');
+            if (await targetCard.waitForDisplayed({ timeout: 10000 })) {
+                console.log('Robot found!');
+            }
+            else { console.log('Robot not found!'); }
         }
-        else { console.log('Robot not found!'); }
+        else {
+            const targetCard = $(this.SwipeScreenLocators.theRobotID);
+            let maxSwipes = 10;
+
+            while (!(await targetCard.isDisplayed()) && maxSwipes > 0) {
+                await Utils.swipeUp();
+                maxSwipes--;
+            }
+
+            if (maxSwipes === 0) {
+                throw new Error(`Robot was not found after 10 swipes.`);
+            }
+
+            console.log(`Successfully scrolled to Robot`);
+        }
     }
 }
 

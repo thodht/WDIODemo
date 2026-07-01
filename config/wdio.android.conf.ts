@@ -7,12 +7,10 @@ export const config: WebdriverIO.Config = {
         '../src/tests/*.spec.ts'
     ],
     capabilities: [{
-        platformName: 'Android',
+        'platformName': 'Android',
         'appium:automationName': 'UiAutomator2',
-        //'appium:deviceName': process.env.ANDROID_DEVICE_NAME || 'emulator-5554',
-        'appium:deviceName': process.env.ANDROID_DEVICE_NAME || 'Pixel_10_Pro_Fold',
-        //'appium:platformVersion': '14.0',
-        //'appium:app': process.env.APP_PATH || './apps/production-build.apk',
+        'appium:deviceName': process.env.ANDROID_DEVICE_NAME || '2C030DLH20000Y',
+        //'appium:deviceName': process.env.ANDROID_DEVICE_NAME || 'Pixel_10_Pro_Fold',
         'appium:appPackage': 'com.wdiodemoapp',
         'appium:appActivity': '.MainActivity',
         //'appium:disableWindowAnimation': true,

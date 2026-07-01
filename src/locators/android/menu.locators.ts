@@ -1,5 +1,4 @@
 export const AndroidMenuLocators = {
-    menuPanel: '~tab-side-menu-panel',
     homeButton: '~side-menu-item-home',
     webviewButton: 'android=new UiSelector().className("android.view.ViewGroup").instance(7)',
     loginButton: 'android=new UiSelector().className("android.view.ViewGroup").instance(10)',

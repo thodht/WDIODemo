@@ -9,16 +9,8 @@ export class WebScreen extends Screen {
     }
 
     // Get main elements
-    private get Spash() {
-        return $(this.WebScreenLocators.spash);
-    }
-
     private get IOButton() {
         return $(this.WebScreenLocators.ioButton);
-    }
-
-    public async validateSpash() {
-        expect(this.Spash.isDisplayed());
     }
 
     public async clickIOButton() {
@@ -44,9 +36,6 @@ export class WebScreen extends Screen {
     }
 
     public async clickHamburgerButton() {
-        /**const sleep = (ms: number): Promise<void> => {
-            return new Promise(resolve => setTimeout(resolve, ms));
-        };*/
         await this.HamburgerMenuButton.click();
         this.validateScreenElements(this.MenuElements);
         await driver.pause(3000);

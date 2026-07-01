@@ -4,6 +4,7 @@ export const AndroidFormsScreenLocators = {
     switch: '~switch',
     dropdown: '~Dropdown',
     dropdownOptions: '//android.widget.CheckedTextView',
+    doneButton: 'aaaa',
     activeButton: '~button-Active',
     okButton: 'android=new UiSelector().resourceId("android:id/button1")'
 }

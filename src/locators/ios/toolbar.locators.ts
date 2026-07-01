@@ -1,9 +1,9 @@
 export const IOSToolbarLocators = {
-    homeButton: 'iHome',
-    webButton: 'iWebview',
-    loginButton: 'iLogin',
-    formsButton: 'iForms',
-    swipeButton: 'iSwipe',
-    dragButton: 'iDrag',
-    menuButton: 'iMenu'
+    homeButton: '~Home',
+    webButton: '~Webview',
+    loginButton: '~Login',
+    formsButton: '~Forms',
+    swipeButton: '~Swipe',
+    dragButton: '~Drag',
+    menuButton: '~Menu'
 };
